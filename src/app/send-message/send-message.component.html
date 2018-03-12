@@ -1,0 +1,8 @@
+<form class="form-inline" (ngSubmit)="onSubmit()" class="container">
+  <div class="row">
+    <label class="sr-only" for="messageInput">Message content</label>
+    <input type="text" placeholder="Input message" id="messageInput" 
+      class="form-control col-8" [(ngModel)]="message.message" name="message">
+    <button type="submit" class="btn btn-primary col">Send</button>
+  </div>
+</form>

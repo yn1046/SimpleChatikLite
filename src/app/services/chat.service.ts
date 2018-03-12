@@ -10,11 +10,22 @@ export class ChatService {
   messages: Observable<ChatMessage[]>
 
   constructor(public afs: AngularFirestore) {
-    this.messages = this.afs.collection('message').valueChanges();
+    this.messagesCollection = this.afs.collection('message');
+    this.messages = this.messagesCollection.snapshotChanges().map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as ChatMessage;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    });;
   }
 
   public getMessages() {
     return this.messages;
+  }
+
+  public sendMessage(message: ChatMessage) {
+    this.messagesCollection.add(message);
   }
 
 }

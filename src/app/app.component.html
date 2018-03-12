@@ -1,11 +1,13 @@
-<div *ngIf="messages?.length > 0; else noMessages">
+<app-navbar></app-navbar>
+
+<div *ngIf="messages?.length > 0; else noMessages" class="container">
   <h1>Messages:</h1>
-  <div *ngFor="let message of messages">
-    <div>
-      <p>{{message.userName}}</p>
-      <p>{{message.message}}</p>
+  <div *ngFor="let message of messages" class="list-group message-list">
+    <div class="list-item" class="list-group-item">
+      <strong>{{message.userName}}: </strong>{{message.message}}
     </div>
   </div>
+  <app-send-message></app-send-message>
 </div>
 
 <ng-template #noMessages>
