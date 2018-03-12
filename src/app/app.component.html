@@ -1,0 +1,13 @@
+<div *ngIf="messages?.length > 0; else noMessages">
+  <h1>Messages:</h1>
+  <div *ngFor="let message of messages">
+    <div>
+      <p>{{message.userName}}</p>
+      <p>{{message.message}}</p>
+    </div>
+  </div>
+</div>
+
+<ng-template #noMessages>
+  <h3>There are no messages to display.</h3>
+</ng-template>

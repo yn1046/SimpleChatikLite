@@ -1,5 +1,5 @@
 export interface ChatMessage {
-    $id?: string;
+    $key?: string;
     email?: string;
     userName?: string;
     message?: string;
