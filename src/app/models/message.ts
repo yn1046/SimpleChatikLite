@@ -3,5 +3,6 @@ export interface ChatMessage {
     email?: string;
     userName?: string;
     message?: string;
-    timeSent?: string;
+    timeSent?: Date;
+    timeSentString?: string;
 }

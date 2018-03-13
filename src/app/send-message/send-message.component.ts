@@ -22,17 +22,18 @@ export class SendMessageComponent implements OnInit {
 
   onSubmit(): void {
     if (this.message.message != '') {
-      this.message.timeSent = this.getDate();
+      this.message.timeSent = new Date();
+      this.message.timeSentString = this.getStringDate(this.message.timeSent);
       console.log(this.message);
       this.chat.sendMessage(this.message);
       this.message.message = '';
     }
   }
 
-  getDate(): string {
-    let date = new Date();
-    return `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} `
-    + `${date.getHours()}:${date.getMinutes()}`;
+  getStringDate(passedDate: Date): string {
+    let date = passedDate;
+    return `${('0'+date.getDate()).slice(-2)}/${('0'+date.getMonth()+1).slice(-2)}/${date.getFullYear()} `
+    + `${('0'+date.getHours()).slice(-2)}:${('0'+date.getMinutes()).slice(-2)}`;
   }
 
 }
