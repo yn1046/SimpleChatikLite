@@ -16,5 +16,5 @@
 
 <div *ngIf="!auth.isAuthorized">
   <h3>Please log in.</h3>
-  <button class="btn btn-info" ng-click="authFacebook()">Log in with facebook.</button>
+  <button class="btn btn-info" (click)="authFacebook()">Log in with facebook.</button>
 </div>

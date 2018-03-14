@@ -24,6 +24,8 @@ export class AppComponent implements OnInit {
   }
 
   authFacebook(): void {
-    alert('sha vsyo budet :D');
+    this.auth.twitter();
+    this.auth.login();
+    console.log(this.auth.user);
   }
 }

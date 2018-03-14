@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { SendMessageComponent } from './send-message/send-message.component';
     BrowserModule,
     FormsModule,
     AngularFirestoreModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [ChatService, AuthService],

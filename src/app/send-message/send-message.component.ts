@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../services/chat.service';
 import { ChatMessage } from '../models/message';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-send-message',
@@ -11,17 +12,19 @@ export class SendMessageComponent implements OnInit {
   message: ChatMessage = {
     userName: 'killaBee',
     email: 'natasha228@gmail.com',
-  }
+  };
 
   input: string;
 
-  constructor(private chat: ChatService) { }
+  constructor(private chat: ChatService, private auth: AuthService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
     if (this.message.message != '') {
+      this.message.userName = this.auth.user.displayName;
+      this.message.email = this.auth.user.email;
       this.message.timeSent = new Date();
       this.message.timeSentString = this.getStringDate(this.message.timeSent);
       console.log(this.message);
