@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from './services/chat.service';
+import { AuthService } from './services/auth.service';
 import { ChatMessage } from './models/message';
 
 @Component({
@@ -11,7 +12,7 @@ export class AppComponent implements OnInit {
   title = 'Simple Chatik';
   messages: ChatMessage[];
 
-  constructor(public chat: ChatService) {
+  constructor(public chat: ChatService, public auth: AuthService) {
 
   }
 
@@ -20,5 +21,9 @@ export class AppComponent implements OnInit {
       console.log(items);
       this.messages = items;
     });
+  }
+
+  authFacebook(): void {
+    alert('sha vsyo budet :D');
   }
 }

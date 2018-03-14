@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<div *ngIf="messages?.length > 0; else noMessages" class="container">
+<div *ngIf="auth.isAuthorized && messages?.length > 0" class="container">
   <h1>Messages:</h1>
   <div *ngFor="let message of messages" class="list-group message-list">
     <div class="list-item" class="list-group-item">
@@ -10,6 +10,11 @@
   <app-send-message></app-send-message>
 </div>
 
-<ng-template #noMessages>
+<div *ngIf="auth.isAuthorized && messages?.length <= 0">
   <h3>There are no messages to display.</h3>
-</ng-template>
+</div>
+
+<div *ngIf="!auth.isAuthorized">
+  <h3>Please log in.</h3>
+  <button class="btn btn-info" ng-click="authFacebook()">Log in with facebook.</button>
+</div>

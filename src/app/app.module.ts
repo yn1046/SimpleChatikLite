@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { ChatService } from './services/chat.service';
+import { AuthService } from './services/auth.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SendMessageComponent } from './send-message/send-message.component';
 
@@ -24,7 +25,7 @@ import { SendMessageComponent } from './send-message/send-message.component';
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [ChatService],
+  providers: [ChatService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
