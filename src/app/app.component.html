@@ -3,7 +3,10 @@
 <div *ngIf="auth.isAuthorized && messages?.length > 0" class="container">
   <h1>Messages:</h1>
   <div *ngFor="let message of messages" class="list-group message-list">
-    <div class="list-item" class="list-group-item">
+    <div *ngIf="message.uid === this.auth.user.uid" class="list-group-item list-group-item-info">
+      <strong>{{message.userName}}: </strong>{{message.message}}
+    </div>
+    <div *ngIf="message.uid !== this.auth.user.uid" class="list-group-item">
       <strong>{{message.userName}}: </strong>{{message.message}}
     </div>
   </div>

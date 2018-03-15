@@ -29,6 +29,7 @@ export class AuthService implements OnInit {
       this.user = result.user;
       this.isAuthorized = true;
       console.log(this.user.displayName);
+      console.log(this.user.uid);
     });
   }
 

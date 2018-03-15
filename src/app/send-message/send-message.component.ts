@@ -23,6 +23,7 @@ export class SendMessageComponent implements OnInit {
 
   onSubmit(): void {
     if (this.message.message != '') {
+      this.message.uid = this.auth.user.uid;
       this.message.userName = this.auth.user.displayName;
       this.message.email = this.auth.user.email;
       this.message.timeSent = new Date();
