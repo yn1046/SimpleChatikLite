@@ -1,7 +1,6 @@
-<app-navbar></app-navbar>
-
+<app-navbar class="fixed-top"></app-navbar>
+<!--TODO: move this to a separate component-->
 <div *ngIf="auth.isAuthorized && messages?.length > 0" class="container">
-  <h1>Messages:</h1>
   <div *ngFor="let message of messages" class="list-group message-list">
     <div *ngIf="message.uid === this.auth.user.uid" class="list-group-item list-group-item-info">
       <strong>{{message.userName}}: </strong>{{message.message}}
@@ -10,7 +9,7 @@
       <strong>{{message.userName}}: </strong>{{message.message}}
     </div>
   </div>
-  <app-send-message></app-send-message>
+  <app-send-message class="fixed-bottom send-form"></app-send-message>
 </div>
 
 <div *ngIf="auth.isAuthorized && messages?.length <= 0">

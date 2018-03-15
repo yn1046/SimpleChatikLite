@@ -4,7 +4,7 @@ import { User, AuthProvider } from '@firebase/auth-types';
 import * as firebase from 'firebase/app';
 
 @Injectable()
-export class AuthService implements OnInit {
+export class AuthService {
   private afAuth: AngularFireAuth;
   user: User;
   isAuthorized: boolean = false;
@@ -13,8 +13,6 @@ export class AuthService implements OnInit {
   constructor(afAuth: AngularFireAuth) {
     this.afAuth = afAuth;
   }
-
-  ngOnInit() { }
 
   facebook() {
     this.provider = new firebase.auth.FacebookAuthProvider();
@@ -34,6 +32,10 @@ export class AuthService implements OnInit {
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    console.log('logout called!!');
+    this.afAuth.auth.signOut().then(()=> {
+      console.log('reloading page...');
+      location.reload();
+    });
   }
 }

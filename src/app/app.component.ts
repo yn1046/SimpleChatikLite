@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
       console.log(items);
       this.messages = items;
     });
+    window.scrollTo(0,document.body.scrollHeight);
   }
 
   authTwitter(): void {
