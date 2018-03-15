@@ -23,9 +23,13 @@ export class AppComponent implements OnInit {
     });
   }
 
-  authFacebook(): void {
+  authTwitter(): void {
     this.auth.twitter();
     this.auth.login();
-    console.log(this.auth.user);
   }
+
+  authFacebook(): void {
+    this.auth.facebook();
+    this.auth.login();
+  }  
 }

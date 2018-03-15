@@ -1,3 +1,16 @@
 <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand" href="#">The Chatik</a>
+  <div *ngIf='this.auth.isAuthorized; else isAnon' class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Logged in as {{this.auth.user.displayName}}.
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">Log Out</a>
+    </div>
+  </div>
+  <ng-template #isAnon>
+    <button class="btn btn-secondary" type="button">
+      Not logged in.
+    </button>
+  </ng-template>
 </nav>

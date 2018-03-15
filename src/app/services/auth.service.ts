@@ -28,6 +28,7 @@ export class AuthService implements OnInit {
     this.afAuth.auth.signInWithPopup(this.provider).then(result => {
       this.user = result.user;
       this.isAuthorized = true;
+      console.log(this.user.displayName);
     });
   }
 
