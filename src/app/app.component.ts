@@ -10,18 +10,13 @@ import { ChatMessage } from './models/message';
 })
 export class AppComponent implements OnInit {
   title = 'Simple Chatik';
-  messages: ChatMessage[];
 
-  constructor(public chat: ChatService, public auth: AuthService) {
+  constructor(public auth: AuthService) {
 
   }
 
   ngOnInit(): void {
-    this.chat.getMessages().subscribe(items => {
-      console.log(items);
-      this.messages = items;
-    });
-    window.scrollTo(0,document.body.scrollHeight);
+    
   }
 
   authTwitter(): void {

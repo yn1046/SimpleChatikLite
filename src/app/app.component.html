@@ -1,23 +1,9 @@
 <app-navbar class="fixed-top"></app-navbar>
 <!--TODO: move this to a separate component-->
-<div *ngIf="auth.isAuthorized && messages?.length > 0" class="container">
-  <div *ngFor="let message of messages" class="list-group message-list">
-    <div *ngIf="message.uid === this.auth.user.uid" class="list-group-item list-group-item-info">
-      <strong>{{message.userName}}: </strong>{{message.message}}
-    </div>
-    <div *ngIf="message.uid !== this.auth.user.uid" class="list-group-item">
-      <strong>{{message.userName}}: </strong>{{message.message}}
-    </div>
-  </div>
-  <app-send-message class="fixed-bottom send-form"></app-send-message>
-</div>
+<app-chat *ngIf="auth.isAuthorized; else unauthorized"></app-chat>
 
-<div *ngIf="auth.isAuthorized && messages?.length <= 0">
-  <h3>There are no messages to display.</h3>
-</div>
-
-<div *ngIf="!auth.isAuthorized">
+<ng-template #unauthorized>
   <h3>Please log in.</h3>
   <button class="btn btn-info" (click)="authTwitter()">Log in with Twitter.</button>
   <button class="btn btn-info" (click)="authFacebook()">Log in with Facebook.</button>
-</div>
+</ng-template>

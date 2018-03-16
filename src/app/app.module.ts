@@ -13,13 +13,15 @@ import { ChatService } from './services/chat.service';
 import { AuthService } from './services/auth.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SendMessageComponent } from './send-message/send-message.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SendMessageComponent
+    SendMessageComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

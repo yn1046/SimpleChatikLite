@@ -1,0 +1,15 @@
+<div *ngIf="messages?.length > 0; else noMessages" class="container">
+  <div *ngFor="let message of messages" class="list-group message-list" id="feed">
+    <div *ngIf="message.uid === this.auth.user.uid" class="list-group-item list-group-item-info">
+      <strong>{{message.userName}}: </strong>{{message.message}}
+    </div>
+    <div *ngIf="message.uid !== this.auth.user.uid" class="list-group-item">
+      <strong>{{message.userName}}: </strong>{{message.message}}
+    </div>
+  </div>
+  <app-send-message class="fixed-bottom send-form"></app-send-message>
+</div>
+
+<ng-template #noMessages>
+  <h3>There are no messages to display.</h3>
+</ng-template>
