@@ -8,7 +8,7 @@ import { ChatMessage } from '../models/message';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit, OnChanges {
+export class ChatComponent implements OnInit {
   messages: ChatMessage[];
 
   constructor(public chat: ChatService, public auth: AuthService) { }
@@ -18,10 +18,6 @@ export class ChatComponent implements OnInit, OnChanges {
       console.log(items);
       this.messages = items;
     });
-    this.scrollBottom();
-  }
-
-  ngOnChanges() {
     this.scrollBottom();
   }
 
