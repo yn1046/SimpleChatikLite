@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.scrollBottom();
   }
 
   authTwitter(): void {
@@ -27,5 +27,10 @@ export class AppComponent implements OnInit {
   authFacebook(): void {
     this.auth.facebook();
     this.auth.login();
-  }  
+  }
+
+  scrollBottom() {
+    console.log('calling scroll from app root');
+    document.body.scrollTop = document.body.scrollHeight;
+  }
 }

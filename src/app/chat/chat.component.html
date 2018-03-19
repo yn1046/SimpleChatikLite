@@ -1,5 +1,5 @@
 <div *ngIf="messages?.length > 0; else noMessages" class="container">
-  <div *ngFor="let message of messages" class="list-group message-list" id="feed">
+  <div *ngFor="let message of messages" class="list-group message-list">
     <div *ngIf="message.uid === this.auth.user.uid" class="list-group-item list-group-item-info">
       <strong>{{message.userName}}: </strong>{{message.message}}
     </div>

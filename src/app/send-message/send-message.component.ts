@@ -28,7 +28,6 @@ export class SendMessageComponent implements OnInit {
       this.message.email = this.auth.user.email;
       this.message.timeSent = new Date();
       this.message.timeSentString = this.getStringDate(this.message.timeSent);
-      console.log(this.message);
       this.chat.sendMessage(this.message);
       this.message.message = '';
     }

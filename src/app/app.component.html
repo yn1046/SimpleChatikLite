@@ -1,6 +1,6 @@
 <app-navbar class="fixed-top"></app-navbar>
 <!--TODO: move this to a separate component-->
-<app-chat *ngIf="auth.isAuthorized; else unauthorized"></app-chat>
+<app-chat *ngIf="auth.isAuthorized; else unauthorized" id="chat"></app-chat>
 
 <ng-template #unauthorized>
   <h3>Please log in.</h3>
