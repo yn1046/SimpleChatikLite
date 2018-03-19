@@ -1,4 +1,5 @@
-<div *ngIf="messages?.length > 0; else noMessages" class="container">
+<div *ngIf="messages?.length > 0; else noMessages">
+  <div #feed class="container" [scrollTop]="feed.scrollHeight">
   <div *ngFor="let message of messages" class="list-group message-list">
     <div *ngIf="message.uid === this.auth.user.uid" class="list-group-item list-group-item-info">
       <strong>{{message.userName}}: </strong>{{message.message}}
@@ -7,6 +8,7 @@
       <strong>{{message.userName}}: </strong>{{message.message}}
     </div>
   </div>
+</div>
   <app-send-message class="fixed-bottom send-form"></app-send-message>
 </div>
 
