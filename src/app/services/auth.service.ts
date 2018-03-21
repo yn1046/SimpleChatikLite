@@ -9,6 +9,7 @@ export class AuthService {
   user: User;
   isAuthorized: boolean = false;
   private provider: AuthProvider;
+  private isVkAuth: boolean = false;
 
   constructor(afAuth: AngularFireAuth) {
     this.afAuth = afAuth;
@@ -22,13 +23,17 @@ export class AuthService {
     this.provider = new firebase.auth.TwitterAuthProvider();
   }
 
+  vk() {
+    this.isVkAuth = true;
+  }
+
   login() {
-    this.afAuth.auth.signInWithPopup(this.provider).then(result => {
-      this.user = result.user;
-      this.isAuthorized = true;
-      console.log(this.user.displayName);
-      console.log(this.user.uid);
-    });
+    if (this.isVkAuth) {
+      //bla-bla-bla
+    }
+    else {
+      this.afterSignIn(this.afAuth.auth.signInWithPopup(this.provider));
+    }
   }
 
   logout() {
@@ -36,6 +41,15 @@ export class AuthService {
     this.afAuth.auth.signOut().then(()=> {
       console.log('reloading page...');
       location.reload();
+    });
+  }
+
+  afterSignIn(prom: Promise<any>) {
+    prom.then(result => {
+      this.user = result.user;
+      this.isAuthorized = true;
+      console.log(this.user.displayName);
+      console.log(this.user.uid);
     });
   }
 }
