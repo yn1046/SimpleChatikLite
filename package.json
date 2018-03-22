@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "@types/auth0-js": "^8.11.2",
     "angularfire2": "^5.0.0-rc.6",
     "auth0-js": "^9.3.3",
     "bootstrap": "^4.0.0",
