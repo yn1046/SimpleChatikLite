@@ -29,11 +29,6 @@ export class AppComponent implements OnInit {
     this.auth.login();
   }
 
-  authVk(): void {
-    this.auth.vk();
-    this.auth.login();
-  }
-
   scrollBottom() {
     console.log('calling scroll from app root');
     document.body.scrollTop = document.body.scrollHeight;
